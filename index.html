@@ -8,19 +8,19 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <!-- Body section start  -->
-<body class="bg-neutral-100 text-lg text-black pb-8">
+<body class="bg-neutral-100 text-lg text-black pb-16">
 <!-- Header Section start  -->
     <header class="sticky top-0 z-10 bg-opacity-60 bg-white py-4">
         <div class="w-11/12 md:w-10/12 mx-auto">
             <div class="grid grid-cols-2 md:flex md:justify-between text-center">
-                <div class="order-1"><button class="bg-green-200 px-6 py-2 rounded-md">Blog</button></div>
+                <div class="order-1"><a class="bg-green-200 px-6 py-2 rounded-md" href="pages/blog.html">Blog</a></div>
                 <div class="flex col-span-3 md:order-2 justify-self-center mb-4">
                     <img class="w-8 h-8 mr-2" src="assets/logo.png" alt="logo">
                     <h1 class="text-2xl">Donate Bangladesh</h1>
                 </div>
                 <div class="flex items-center order-3">
                     <img class="w-6 h-6" src="assets/coin.png" alt="money">
-                    <p class="mx-1">10000</p>
+                    <p id="balance" class="mx-1">10000</p>
                     <p>BDT</p>
                 </div>
             </div>
@@ -28,11 +28,11 @@
     </header>
     <main class="bg-white py-6">
         <div class="text-center mb-4 sticky top-28 md:top-20 z-10 bg-opacity-60 bg-white">
-            <button class="bg-green-200 px-4 py-2 rounded-md border-2">Donation</button>
-            <button class="px-4 py-2 rounded-md border-2">History</button>
+            <button id="donationButton" class="bg-green-200 px-4 py-2 rounded-md border-2">Donation</button>
+            <button id="historyButton" class="px-4 py-2 rounded-md border-2">History</button>
         </div>
         <div class="w-11/12 md:w-10/12 mx-auto relative">
-            <div>
+            <div id="sectionContainer">
                 <section class="section-1">
                     <div class="card bg-base-100 w-96 md:w-full border-2 md:flex md:flex-row">
                         <figure class="px-10 pt-10 md:w-1/2">
@@ -44,14 +44,14 @@
                         <div class="card-body items-center text-center md:w-1/2">
                             <div class="flex items-center md:self-start bg-gray-200 p-2 rounded">
                                 <img class="w-6 h-6" src="assets/coin.png" alt="money">
-                                <p class="mx-1">0</p>
+                                <p id="noakhaliFund" class="mx-1">0</p>
                                 <p>BDT</p>
                             </div>
                           <h2 class="card-title md:self-start">Donate for Flood at Noakhali, Bangladesh</h2>
                           <p class="text-justify">The recent floods in Noakhali have caused significant damage to homes  infrastructure. Your donation will help provide essential supplies and  to those affected by this disaster. Every contribution, big or small, makes  difference. Please join us in supporting the relief efforts and making a positive impact on the lives of those in need.</p>
                           <div class="card-actions md:w-full">
-                            <input type="text" placeholder="Write Donation Amount" class="input input-bordered w-full" />
-                            <button class="btn btn-primary w-full">Donate Now</button>
+                            <input id="sectionOneInput" type="text" placeholder="Write Donation Amount" class="input input-bordered w-full" />
+                            <button id="sectionOneDonationButton" class="btn bg-green-200 w-full">Donate Now</button>
                           </div>
                         </div>
                       </div>
@@ -73,8 +73,8 @@
                           <h2 class="card-title md:self-start">Donate for Flood Relief in Feni,Bangladesh</h2>
                           <p class="text-justify">The recent floods in Feni have devastated local communities, leading to severe disruption and loss. Your generous donation will help provide immediate aid, including food, clean water, and medical supplies, to those affected by this calamity. Together, we can offer crucial support and help rebuild lives in the aftermath of this disaster. Every contribution counts towards making a real difference. Please consider donating today to assist those in urgent need.</p>
                           <div class="card-actions md:w-full">
-                            <input type="text" placeholder="Write Donation Amount" class="input input-bordered w-full" />
-                            <button class="btn btn-primary w-full">Donate Now</button>
+                            <input id="sectionTwoInput" type="text" placeholder="Write Donation Amount" class="input input-bordered w-full" />
+                            <button id="sectionTwoDonationButton" class="btn bg-green-200 w-full">Donate Now</button>
                           </div>
                         </div>
                       </div>
@@ -96,21 +96,21 @@
                           <h2 class="card-title md:self-start">Aid for Injured in the Quota Movement</h2>
                           <p class="text-justify">The recent Quota movement has resulted in numerous injuries and significant hardship for many individuals. Your support is crucial in providing medical assistance, rehabilitation, and necessary supplies to those affected. By contributing, you help ensure that injured individuals receive the care and support they need during this challenging time. Every donation plays a vital role in alleviating their suffering and aiding in their recovery. Please consider making a donation to support these brave individuals in their time of need.</p>
                           <div class="card-actions md:w-full">
-                            <input type="text" placeholder="Write Donation Amount" class="input input-bordered w-full" />
-                            <button class="btn btn-primary w-full">Donate Now</button>
+                            <input id="sectionThreeInput" type="text" placeholder="Write Donation Amount" class="input input-bordered w-full" />
+                            <button id="sectionThreeDonationButton" class="btn bg-green-200 w-full">Donate Now</button>
                           </div>
                         </div>
                       </div>
                 </section>
             </div>
         </div>
-        <section class="hidden bg-white history">
-            <div class="w-11/12 md:w-10/12 h-screen mx-auto">
-                <div class="p-4 border-2">
+        <section id="historyContainer" class="hidden bg-white history">
+            <div class="w-11/12 md:w-10/12 min-h-96 mx-auto">
+                <div id="historyText" class="p-4 border-2">
                 </div>
             </div>
         </section>
-        <section class="hidden w-screen h-screen bg-opacity-50 bg-black fixed top-0 z-20 content-center">
+        <section id="congratesMessage" class="hidden w-screen h-screen bg-opacity-50 bg-black fixed top-0 z-20 content-center">
             <div class="w-full md:w-96 h-96 bg-white opacity-100 flex flex-col justify-evenly text-center mx-auto">
                 <h2 class="font-bold text-4xl">Congrates!</h2>
                 <img class="w-10 h-10 self-center" src="assets/coin.png" alt="money">
@@ -120,5 +120,6 @@
             </div>
         </section>
     </main>
+    <script src="js/main.js"></script>
 </body>
 </html>
