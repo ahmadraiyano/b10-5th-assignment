@@ -17,26 +17,46 @@ function message(){
     document.getElementById("congratesMessage").classList.remove("hidden");
 };
 
+function isNumberOnly(str) {
+    const num = Number(str);
+    return Number.isInteger(num) && num.toString() === str;
+  };
+
 document.getElementById("sectionOneDonationButton")
-.addEventListener("click", function(){
-    let sectionOnein = document.getElementById("sectionOneInput").value;
+.addEventListener("click", function(event){
+    event.preventDefault();
+      let sectionOneIn = document.getElementById("sectionOneInput").value;
+      let sectionOneInNum = parseFloat(sectionOneIn);
+      let numCheck = isNumberOnly(sectionOneIn);
+      if (numCheck === true && sectionOneIn > 0) {
+           let donatedNoakhali = document.getElementById("noakhaliFund").innerText;
+           let donatedNoakhaliAmount = parseFloat(donatedNoakhali);
+           let newBalance = document.getElementById("balance").innerText;
+           let newBalanceAmount = parseFloat(newBalance);
+           
+           let subAmount = newBalanceAmount - sectionOneInNum;
+           document.getElementById("balance").innerText = subAmount;
 
-    function isNumberOnly(str) {
-        const num = Number(str);
-        return Number.isInteger(num) && num.toString() === str;
-      }
-      let numCheck = isNumberOnly(sectionOnein);
+           let addAmount = donatedNoakhaliAmount + sectionOneInNum;
+           document.getElementById("noakhaliFund").innerText = addAmount;
 
-      if (numCheck === true && sectionOnein > 0) {
-            let newBalance = parseInt(document.getElementById("balance").innerText);
-            let donatedFund = parseInt(document.getElementById("noakhaliFund").innerText);
-            let substracted = newBalance - sectionOnein;
-            let donationAmount = donatedFund + sectionOnein;
-            document.getElementById("balance").innerText = substracted;
-            document.getElementById("noakhaliFund").innerText = donationAmount;
-            document.getElementById("historyText").innerHTML = "hole";
-            message();
-            
+           let inputDiv = document.createElement("div");
+           inputDiv.classList.add("border-2", "p-4");
+
+           let heading = document.createElement("h2");
+           heading.classList.add("font-bold");
+           heading.innerText = sectionOneInNum + " Taka is Donated for " + document.getElementById("noakhaliHeading").innerText;
+
+           let date = new Date();
+           let p = document.createElement("p");
+           p.innerText = date;
+
+           let historyTextDiv = document.getElementById("historyText");
+           historyTextDiv.appendChild(inputDiv);
+           inputDiv.appendChild(heading);
+           inputDiv.appendChild(p);
+
+           message();
       } else {
         alert("invalid");
       }
