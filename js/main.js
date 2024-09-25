@@ -56,6 +56,8 @@ document.getElementById("sectionOneDonationButton")
            inputDiv.appendChild(heading);
            inputDiv.appendChild(p);
 
+            document.getElementById("sectionOneInput").value = "";
+
            message();
       } else {
         alert("invalid");
@@ -95,6 +97,8 @@ document.getElementById("sectionTwoDonationButton")
            inputDiv.appendChild(heading);
            inputDiv.appendChild(p);
 
+           document.getElementById("sectionTwoInput").value = "";
+
            message();
       } else {
         alert("invalid");
@@ -133,6 +137,8 @@ document.getElementById("sectionThreeDonationButton")
            historyTextDiv.appendChild(inputDiv);
            inputDiv.appendChild(heading);
            inputDiv.appendChild(p);
+
+           document.getElementById("sectionThreeInput").value = "";
 
            message();
       } else {
