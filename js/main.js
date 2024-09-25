@@ -45,7 +45,7 @@ document.getElementById("sectionOneDonationButton")
 
            let heading = document.createElement("h2");
            heading.classList.add("font-bold");
-           heading.innerText = sectionOneInNum + " Taka is Donated for " + document.getElementById("noakhaliHeading").innerText;
+           heading.innerText = sectionOneInNum + " Taka is " + document.getElementById("noakhaliHeading").innerText;
 
            let date = new Date();
            let p = document.createElement("p");
@@ -62,12 +62,82 @@ document.getElementById("sectionOneDonationButton")
       }
 });
 document.getElementById("sectionTwoDonationButton")
-.addEventListener("click", function(){
-    message();
+.addEventListener("click", function(event){
+    event.preventDefault();
+      let sectionTwoIn = document.getElementById("sectionTwoInput").value;
+      let sectionTwoInNum = parseFloat(sectionTwoIn);
+      let numCheckTwo = isNumberOnly(sectionTwoIn);
+      if (numCheckTwo === true && sectionTwoIn > 0) {
+           let donatedFlood = document.getElementById("floodFund").innerText;
+           let donatedFloodAmount = parseFloat(donatedFlood);
+           let newBalanceTwo = document.getElementById("balance").innerText;
+           let newBalanceAmountTwo = parseFloat(newBalanceTwo);
+           
+           let subAmountTwo = newBalanceAmountTwo - sectionTwoInNum;
+           document.getElementById("balance").innerText = subAmountTwo;
+
+           let addAmountTwo = donatedFloodAmount + sectionTwoInNum;
+           document.getElementById("floodFund").innerText = addAmountTwo;
+
+           let inputDiv = document.createElement("div");
+           inputDiv.classList.add("border-2", "p-4");
+
+           let heading = document.createElement("h2");
+           heading.classList.add("font-bold");
+           heading.innerText = sectionTwoInNum + " Taka is " + document.getElementById("floodHeading").innerText;
+
+           let date = new Date();
+           let p = document.createElement("p");
+           p.innerText = date;
+
+           let historyTextDiv = document.getElementById("historyText");
+           historyTextDiv.appendChild(inputDiv);
+           inputDiv.appendChild(heading);
+           inputDiv.appendChild(p);
+
+           message();
+      } else {
+        alert("invalid");
+      }
 });
 document.getElementById("sectionThreeDonationButton")
-.addEventListener("click", function(){
-    message();
+.addEventListener("click", function(event){
+    event.preventDefault();
+      let sectionThreeIn = document.getElementById("sectionThreeInput").value;
+      let sectionThreeInNum = parseFloat(sectionThreeIn);
+      let numCheckThree = isNumberOnly(sectionThreeIn);
+      if (numCheckThree === true && sectionThreeIn > 0) {
+           let donatedQuota = document.getElementById("quotaFund").innerText;
+           let donatedQuotaAmount = parseFloat(donatedQuota);
+           let newBalanceThree = document.getElementById("balance").innerText;
+           let newBalanceAmountThree = parseFloat(newBalanceThree);
+           
+           let subAmountThree = newBalanceAmountThree - sectionThreeInNum;
+           document.getElementById("balance").innerText = subAmountThree;
+
+           let addAmountThree = donatedQuotaAmount + sectionThreeInNum;
+           document.getElementById("quotaFund").innerText = addAmountThree;
+
+           let inputDiv = document.createElement("div");
+           inputDiv.classList.add("border-2", "p-4");
+
+           let heading = document.createElement("h2");
+           heading.classList.add("font-bold");
+           heading.innerText = sectionThreeInNum + " Taka is " + document.getElementById("quotaHeading").innerText;
+
+           let date = new Date();
+           let p = document.createElement("p");
+           p.innerText = date;
+
+           let historyTextDiv = document.getElementById("historyText");
+           historyTextDiv.appendChild(inputDiv);
+           inputDiv.appendChild(heading);
+           inputDiv.appendChild(p);
+
+           message();
+      } else {
+        alert("invalid");
+      }
 });
 
 function close() {
